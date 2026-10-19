@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mi espacio</title>
+    <title>L</title>
 
     <style>
         * {
@@ -20,6 +20,14 @@
             font-family: system-ui, sans-serif;
         }
 
+        .imagen-superior {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: auto;
+        }
+
         .contenedor {
             display: flex;
             width: min(600px, 100%);
@@ -30,9 +38,9 @@
             flex: 1;
             min-width: 0;
             padding: 14px 18px;
-            border: 1px solid #fff;
+            border: 2px solid #444;
             border-radius: 10px;
-            background: rgb(255 255 255 / 90%);
+            background: #ccc;
             color: #222;
             font: inherit;
             outline: none;
@@ -40,26 +48,27 @@
         }
 
         input:focus {
-            outline: 3px solid #6b9cff;
+            outline: 2px solid #888;
         }
 
         button {
-            padding: 14px 22px;
-            border: none;
+            width: 54px;
+            min-width: 54px;
+            border: 2px solid #444;
             border-radius: 10px;
-            background: #6b9cff;
-            color: white;
-            font: inherit;
-            font-weight: bold;
+            background: #ccc;
             cursor: pointer;
+            box-shadow: 0 8px 28px rgb(0 0 0 / 30%);
         }
 
         button:hover {
-            background: #4d7fe0;
+            background: #bbb;
         }
     </style>
 </head>
 <body>
+
+    <img src="./text.png" alt="" class="imagen-superior">
 
     <form class="contenedor" id="formulario">
         <input
@@ -73,7 +82,7 @@
             required
         >
 
-        <button type="submit">Confirmar</button>
+        <button type="submit" aria-label="Enviar"></button>
     </form>
 
     <script>
