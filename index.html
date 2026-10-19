@@ -24,8 +24,12 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            width: 120px;
+            width: clamp(140px, 22vw, 280px);
+            max-height: 25vh;
             height: auto;
+            object-fit: contain;
+            object-position: top left;
+            z-index: 10;
         }
 
         .contenedor {
@@ -69,11 +73,12 @@
         padding: 16px;
         background-attachment: scroll;
     }
-
+    
     .imagen-superior {
         top: 14px;
         left: 14px;
-        width: 900px;
+        width: clamp(120px, 35vw, 180px);
+        max-height: 20vh;
     }
 
     .contenedor {
