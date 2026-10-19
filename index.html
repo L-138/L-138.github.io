@@ -23,12 +23,12 @@
         .imagen-superior {
             position: fixed;
             top: 32px;
-            left: 32px;
+            left: 50%;
+            transform: translateX(-50%);
             width: clamp(280px, 44vw, 560px);
             max-height: 35vh;
             height: auto;
             object-fit: contain;
-            object-position: top left;
             z-index: 10;
         }
 
@@ -36,6 +36,7 @@
             display: flex;
             width: min(600px, 100%);
             gap: 10px;
+            transform: translateY(-40px);
         }
 
         input {
@@ -68,39 +69,41 @@
         button:hover {
             background: #bbb;
         }
+
         @media (max-width: 480px) {
-    body {
-        padding: 16px;
-        background-attachment: scroll;
-    }
-    
-    .imagen-superior {
-        top: 24px;
-        left: 24px;
-        width: 70vw;
-        max-width: 360px;
-        max-height: 30vh;
-    }
+            body {
+                padding: 16px;
+                background-attachment: scroll;
+            }
 
-    .contenedor {
-        gap: 8px;
-    }
+            .imagen-superior {
+                top: 24px;
+                width: 70vw;
+                max-width: 360px;
+                max-height: 30vh;
+            }
 
-    input {
-        padding: 12px;
-        font-size: 16px;
-    }
+            .contenedor {
+                gap: 8px;
+                transform: translateY(-40px);
+            }
 
-    button {
-        width: 48px;
-        min-width: 48px;
-    }
-}
+            input {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            button {
+                width: 48px;
+                min-width: 48px;
+                min-height: 48px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <img src="./text.png" alt="" class="imagen-superior" >
+    <img src="./text.png" alt="" class="imagen-superior">
 
     <form class="contenedor" id="formulario">
         <input
