@@ -1,38 +1,104 @@
 <!doctype html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Mi espacio</title>
-	<style>
-		* { box-sizing: border-box; }
-		html, body { min-height: 100%; }
-		body {
-			min-height: 100vh;
-			margin: 0;
-			display: grid;
-			place-items: center;
-			padding: 24px;
-			background: #222 url("./imagen.png") center / cover no-repeat fixed;
-			font-family: system-ui, sans-serif;
-		}
-		textarea {
-			display: block;
-			width: min(600px, 100%);
-			min-height: 300px;
-			padding: 20px;
-			border: 1px solid #fff;
-			border-radius: 12px;
-			background: rgb(255 255 255 / 90%);
-			color: #222;
-			font: inherit;
-			resize: vertical;
-			box-shadow: 0 8px 28px rgb(0 0 0 / 30%);
-		}
-		textarea:focus { outline: 3px solid #6b9cff; }
-	</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi espacio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: #222 url("./imagen.png") center / cover no-repeat fixed;
+            font-family: system-ui, sans-serif;
+        }
+
+        .contenedor {
+            display: flex;
+            width: min(600px, 100%);
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            padding: 14px 18px;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            background: rgb(255 255 255 / 90%);
+            color: #222;
+            font: inherit;
+            outline: none;
+            box-shadow: 0 8px 28px rgb(0 0 0 / 30%);
+        }
+
+        input:focus {
+            outline: 3px solid #6b9cff;
+        }
+
+        button {
+            padding: 14px 22px;
+            border: none;
+            border-radius: 10px;
+            background: #6b9cff;
+            color: white;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4d7fe0;
+        }
+    </style>
 </head>
 <body>
-	<textarea aria-label="Escribe aquí" placeholder="Escribe aquí..."></textarea>
+
+    <form class="contenedor" id="formulario">
+        <input
+            type="text"
+            id="codigo"
+            aria-label="Código"
+            maxlength="6"
+            inputmode="numeric"
+            pattern="[0-9]{6}"
+            autocomplete="off"
+            required
+        >
+
+        <button type="submit">Confirmar</button>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const codigo = document.getElementById("codigo");
+
+        codigo.addEventListener("input", () => {
+            codigo.value = codigo.value.replace(/\D/g, "").slice(0, 6);
+        });
+
+        formulario.addEventListener("submit", (evento) => {
+            evento.preventDefault();
+
+            if (!/^\d{6}$/.test(codigo.value)) {
+                alert("Introduce un código de 6 dígitos.");
+                return;
+            }
+
+            if (codigo.value === "123456") {
+                alert("felicitaciones");
+            } else {
+                alert("Código incorrecto.");
+            }
+        });
+    </script>
+
 </body>
 </html>
