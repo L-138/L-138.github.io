@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mi espacio</title>
+	<style>
+		* { box-sizing: border-box; }
+		html, body { min-height: 100%; }
+		body {
+			min-height: 100vh;
+			margin: 0;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			background: #222 url("./imagen.png") center / cover no-repeat fixed;
+			font-family: system-ui, sans-serif;
+		}
+		textarea {
+			display: block;
+			width: min(600px, 100%);
+			min-height: 300px;
+			padding: 20px;
+			border: 1px solid #fff;
+			border-radius: 12px;
+			background: rgb(255 255 255 / 90%);
+			color: #222;
+			font: inherit;
+			resize: vertical;
+			box-shadow: 0 8px 28px rgb(0 0 0 / 30%);
+		}
+		textarea:focus { outline: 3px solid #6b9cff; }
+	</style>
+</head>
+<body>
+	<textarea aria-label="Escribe aquí" placeholder="Escribe aquí..."></textarea>
+</body>
+</html>
